@@ -22,9 +22,9 @@ function calculate(number1, number2, operator) {
     return result;
 }
 
-function getNumber(a){
-  if(parseInt(a)){
-    return parseInt(a);
+function getNumber(number){
+  if(parseInt(number)){
+    return parseInt(number);
   }
 }
 
