@@ -54,4 +54,20 @@ function hasOperator(){
     }
     return hasOperator;
 }
+
+function linkNumbers(number){
+    if(!hasOperator() && !isOperator){
+        result.textContent += number;
+        isOperator = false;
+    }
+    else if(isOperator && hasOperator()){
+        result.textContent = number;
+        isOperator = false;
+    }
+    else {
+        result.textContent += number;
+        isOperator = false;
+    }
+}
+
 populateDisplay();
