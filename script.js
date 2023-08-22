@@ -23,8 +23,9 @@ function calculate(number1, number2, operator) {
 }
 
 function getNumber(number){
-  if(parseInt(number)){
-    return parseInt(number);
+    const parsedNumber = parseInt(number);
+    if(!isNaN(parsedNumber)){
+    return parsedNumber;
   }
 }
 
