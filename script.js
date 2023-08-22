@@ -70,4 +70,15 @@ function linkNumbers(number){
     }
 }
 
+function addOperator(operator){
+    if(!hasOperator()){
+        functionStr.textContent += result.textContent + " " + operator + " ";
+        isOperator = true;
+    }
+    else {
+        result.textContent = calculate(functionStr.textContent);
+        functionStr.textContent = result.textContent + " " + operator + " ";
+        isOperator = true;
+    }
+}
 populateDisplay();
