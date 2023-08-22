@@ -76,7 +76,7 @@ function addOperator(operator){
         isOperator = true;
     }
     else {
-        result.textContent = calculate(functionStr.textContent);
+        result.textContent = calculate(functionStr.textContent + result.textContent);
         functionStr.textContent = result.textContent + " " + operator + " ";
         isOperator = true;
     }
@@ -91,7 +91,7 @@ function checkDisplay(button){
         addOperator(userChoice);
     }
     else if(userChoice === "=" && functionStr.textContent.length > 0){
-        result.textContent = calculate(functionStr.textContent);
+        result.textContent = calculate(functionStr.textContent + result.textContent);
     }
     else if(userChoice === "Delete"){
         deleteValues();
