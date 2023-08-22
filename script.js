@@ -1,10 +1,13 @@
 const buttons = document.querySelectorAll('button');
-const display = document.querySelector('.calc-display');
-let displayValue;
+const result = document.querySelector('.calc-display');
+let functionStr = document.querySelector('.calc-result');
+let isOperator = false;
 
-function calculate(number1, number2, operator) {
-    let a = getNumber(number1)
-    let b = getNumber(number2);
+function calculate(str) {
+    let arr = str.split(" ");
+    let a = getNumber(arr[0]);
+    let b = getNumber(arr[2]);
+    let operator = arr[1];
     let result;
     switch (operator) {
         case "+":
@@ -13,10 +16,10 @@ function calculate(number1, number2, operator) {
         case "-":
             result = a - b;
             break;
-        case "*":
+        case "×":
             result = a * b;
             break;
-        case "/":
+        case "÷":
             result = a / b;
     }
     return result;
@@ -31,11 +34,8 @@ function getNumber(number){
 
 function populateDisplay(){
     buttons.forEach((button) => {
-        
-        button.addEventListener('click', () => {
-            displayValue = button.textContent;
-            display.textContent = button.textContent;
-        });
+        button.addEventListener('click', () => checkDisplay(button));
     });
 }
+
 populateDisplay();
