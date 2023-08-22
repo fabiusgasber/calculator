@@ -43,4 +43,8 @@ function deleteValues(){
     functionStr.textContent = "";
 }
 
+function clearValues(){
+    functionStr.textContent = "";
+}
+
 populateDisplay();
