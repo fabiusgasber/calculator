@@ -38,4 +38,9 @@ function populateDisplay(){
     });
 }
 
+function deleteValues(){
+    result.textContent = "";
+    functionStr.textContent = "";
+}
+
 populateDisplay();
