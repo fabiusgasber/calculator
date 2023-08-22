@@ -66,7 +66,6 @@ function linkNumbers(number){
     }
     else {
         result.textContent += number;
-        isOperator = false;
     }
 }
 
