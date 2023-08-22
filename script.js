@@ -47,4 +47,11 @@ function clearValues(){
     functionStr.textContent = "";
 }
 
+function hasOperator(){
+    let hasOperator = false;
+    if(functionStr.textContent.includes("+") || functionStr.textContent.includes("÷") || functionStr.textContent.includes("×") || functionStr.textContent.includes("-")){
+        hasOperator = true;
+    }
+    return hasOperator;
+}
 populateDisplay();
