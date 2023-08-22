@@ -91,6 +91,7 @@ function checkDisplay(button){
         addOperator(userChoice);
     }
     else if(userChoice === "=" && functionStr.textContent.length > 0){
+        functionStr.textContent = functionStr.textContent + result.textContent + " " + "="
         result.textContent = calculate(functionStr.textContent + result.textContent);
     }
     else if(userChoice === "Delete"){
