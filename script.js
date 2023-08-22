@@ -81,4 +81,24 @@ function addOperator(operator){
         isOperator = true;
     }
 }
+
+function checkDisplay(button){
+    let userChoice = button.textContent;
+    if(!isNaN(userChoice)){
+        linkNumbers(userChoice);
+    }
+    else if(userChoice === "+" || userChoice === "÷" || userChoice === "×" || userChoice === "-"){
+        addOperator(userChoice);
+    }
+    else if(userChoice === "=" && functionStr.textContent.length > 0){
+        result.textContent = calculate(functionStr.textContent);
+    }
+    else if(userChoice === "Delete"){
+        deleteValues();
+    }
+    else if(userChoice === "Clear"){
+        clearValues();
+    }
+    }
+
 populateDisplay();
