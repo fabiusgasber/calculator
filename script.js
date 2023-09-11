@@ -92,7 +92,7 @@ function checkDisplay(button){
     else if(userChoice === "+" || userChoice === "÷" || userChoice === "×" || userChoice === "-"){
         addOperator(userChoice);
     }
-    else if(userChoice === "=" && functionStr.textContent.length > 0){
+    else if(userChoice === "=" && functionStr.textContent.length > 0 && !functionStr.textContent.includes("=")){
         functionStr.textContent = functionStr.textContent + result.textContent + " " + "="
         result.textContent = calculate(functionStr.textContent + result.textContent);
     }
