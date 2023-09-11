@@ -78,7 +78,6 @@ function addOperator(operator){
         isOperator = true;
     }
     else {
-        result.textContent = calculate(functionStr.textContent + result.textContent);
         functionStr.textContent = result.textContent + " " + operator + " ";
         isOperator = true;
     }
