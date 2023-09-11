@@ -22,7 +22,7 @@ function calculate(str) {
         case "÷":
             result = a / b;
     }
-    return result;
+    return result.toFixed(2);
 }
 
 function getNumber(number){
