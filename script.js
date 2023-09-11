@@ -8,24 +8,31 @@ function calculate(str) {
     let a = getNumber(arr[0]);
     let b = getNumber(arr[2]);
     let operator = arr[1];
-    let result;
+    let equation;
     switch (operator) {
         case "+":
-            result = a + b;
+            equation = a + b;
             break;
         case "-":
-            result = a - b;
+            equation = a - b;
             break;
         case "×":
-            result = a * b;
+            equation = a * b;
             break;
         case "÷":
-            result = a / b;
+            if(b === 0){
+                equation = "LMFAO";
+            }
+            else{
+                equation = a / b;
+            }
     }
-    if(result % 1 != 0){
-        result = result.toFixed(2);
-    }
-    return result;
+        if(equation % 1 != 0){
+            try{
+                equation = equation.toFixed(2);
+            } catch(error){ };
+        } 
+    return equation;
 }
 
 function getNumber(number){
