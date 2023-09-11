@@ -77,7 +77,8 @@ function addOperator(operator){
         functionStr.textContent += result.textContent + " " + operator + " ";
         isOperator = true;
     }
-    else {
+    else if(!isOperator){
+        result.textContent = calculate(functionStr.textContent + result.textContent);
         functionStr.textContent = result.textContent + " " + operator + " ";
         isOperator = true;
     }
