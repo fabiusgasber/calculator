@@ -1,3 +1,12 @@
 html{
     background-color: #162c33;
 }
+
+.calc-box, .user-area
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 5em;
+}
+
