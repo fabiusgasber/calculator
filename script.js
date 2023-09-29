@@ -48,11 +48,6 @@ function populateDisplay(){
     });
 }
 
-function deleteValues(){
-    result.textContent = "";
-    functionStr.textContent = "";
-}
-
 function clearValues(){
     result.textContent = 0;
     functionStr.textContent = "";
