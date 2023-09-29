@@ -1,6 +1,6 @@
 const buttons = document.querySelectorAll('button');
-const result = document.querySelector('.calc-display');
-let functionStr = document.querySelector('.calc-result');
+const result = document.querySelector('.calc-result');
+let functionStr = document.querySelector('.calc-function');
 let isOperator = false;
 
 function calculate(str) {
