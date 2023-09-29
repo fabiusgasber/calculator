@@ -48,6 +48,17 @@ html{
     border-radius: 8px;
 }
 
+.calc-result{
+    align-self: flex-end;
+    font-size: 40px;
+}
+
+.calc-function, .calc-result {
+    text-align: right;
+    flex-basis: 100%;
+    color: #000000;
+    font-family: 'Orbitron', sans-serif;
+}
 
 button {
     font-size: 30px;
