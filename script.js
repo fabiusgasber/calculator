@@ -58,6 +58,11 @@ function clearValues(){
     functionStr.textContent = "";
 }
 
+function deleteValues(){
+    let arr = result.textContent.split("");
+    arr.pop();
+    result.textContent = arr.join("");
+}
 
 function hasOperator(){
     let hasOperator = false;
