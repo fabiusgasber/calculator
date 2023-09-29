@@ -10,3 +10,35 @@ html{
     margin-top: 5em;
 }
 
+.mistake-area {
+    display:flex; 
+    justify-content: center;
+    gap: 30px;
+}
+.calc-body{
+    display: flex;
+    flex-direction: column;
+}
+
+.user-area{
+    margin: 2em 0;
+    gap: 10px;
+    flex-basis: 75%;
+}
+
+.calc-body{
+    background-color: #000000;
+    border-radius: 12px;
+    height: 40em;
+}
+
+.calc-display{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1em;
+    height: 6em;
+    padding: 1em;
+    background-color: #c8c8c8;
+    border-radius: 8px;
+}
+
