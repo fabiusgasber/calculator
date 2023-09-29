@@ -54,8 +54,10 @@ function deleteValues(){
 }
 
 function clearValues(){
+    result.textContent = 0;
     functionStr.textContent = "";
 }
+
 
 function hasOperator(){
     let hasOperator = false;
