@@ -73,7 +73,10 @@ function hasOperator(){
 }
 
 function linkNumbers(number){
-    if(!hasOperator() && !isOperator){
+    if(result.textContent == 0){
+        result.textContent = number
+    }
+    else if(!hasOperator() && !isOperator){
         result.textContent += number;
         isOperator = false;
     }
