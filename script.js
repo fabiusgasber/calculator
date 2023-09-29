@@ -116,7 +116,7 @@ function checkDisplay(button){
         functionStr.textContent = functionStr.textContent + result.textContent + " " + "="
         result.textContent = calculate(functionStr.textContent + result.textContent);
     }
-    else if(userChoice === "Delete"){
+    else if(userChoice === "Delete" && !functionStr.textContent.includes("=")){
         deleteValues();
     }
     else if(userChoice === "Clear"){
