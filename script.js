@@ -40,7 +40,7 @@ function calculate(str) {
 }
 
 function getNumber(number){
-    const parsedNumber = parseInt(number);
+    const parsedNumber = parseFloat(number);
     if(!isNaN(parsedNumber)){
     return parsedNumber;
   }
@@ -72,7 +72,7 @@ function hasOperator(){
 }
 
 function linkNumbers(number){
-    if(result.textContent == 0){
+    if(result.textContent == 0 && !result.textContent.includes(".")){
         result.textContent = number
     }
     else if(!hasOperator() && !isOperator && !functionStr.textContent.includes("=")){
@@ -103,6 +103,12 @@ function addOperator(operator){
     }
 }
 
+function addDecimal(){
+    if(!result.textContent.includes(".")){
+        result.textContent += ".";
+    }
+}
+
 function checkDisplay(button){
     let userChoice = button.textContent;
     if(!isNaN(userChoice)){
@@ -120,6 +126,9 @@ function checkDisplay(button){
     }
     else if(userChoice === "CE"){
         clearValues();
+    }
+    else if(userChoice === "."){
+        addDecimal();
     }
     }
 
