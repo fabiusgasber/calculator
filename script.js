@@ -14,7 +14,7 @@ const operators = {
 function checkOperator(str){
     let isOperator = false;
     for(const property in operators){
-        if(str === operators[property]){
+        if(str.includes(operators[property])){
             isOperator = true;
         }
     }
@@ -105,23 +105,15 @@ function deleteValues(){
     result.textContent = arr.join("");
 }
 
-function hasOperator(){
-    let hasOperator = false;
-    if(functionStr.textContent.includes("+") || functionStr.textContent.includes("÷") || functionStr.textContent.includes("×") || functionStr.textContent.includes("-") || functionStr.textContent.includes("^")){
-        hasOperator = true;
-    }
-    return hasOperator;
-}
-
 function linkNumbers(number){
     if(result.textContent == 0 && !result.textContent.includes(".")){
         result.textContent = number
     }
-    else if(!hasOperator() && !isOperator && !functionStr.textContent.includes("=")){
+    else if(!checkOperator(functionStr.textContent) && !isOperator && !functionStr.textContent.includes("=")){
         result.textContent += number;
         isOperator = false;
     }
-    else if(isOperator && hasOperator()){
+    else if(isOperator && checkOperator(functionStr.textContent)){
         result.textContent = number;
         isOperator = false;
     }
@@ -131,11 +123,11 @@ function linkNumbers(number){
 }
 
 function addOperator(operator){
-    if(!hasOperator()){
+    if(!checkOperator(functionStr.textContent)){
         functionStr.textContent += result.textContent + " " + operator + " ";
         isOperator = true;
     }
-    else if(hasOperator() && isOperator){
+    else if(checkOperator(functionStr.textContent) && isOperator){
         functionStr.textContent = result.textContent + " " + operator + " ";
     }
     else if(!isOperator){
