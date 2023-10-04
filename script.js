@@ -26,6 +26,10 @@ function calculate(str) {
             else{
                 equation = a / b;
             }
+            break;
+        case "^":
+            equation = a ** b;
+            break;
     }
         if(equation % 1 != 0){
             try{
@@ -61,7 +65,7 @@ function deleteValues(){
 
 function hasOperator(){
     let hasOperator = false;
-    if(functionStr.textContent.includes("+") || functionStr.textContent.includes("÷") || functionStr.textContent.includes("×") || functionStr.textContent.includes("-")){
+    if(functionStr.textContent.includes("+") || functionStr.textContent.includes("÷") || functionStr.textContent.includes("×") || functionStr.textContent.includes("-") || functionStr.textContent.includes("^")){
         hasOperator = true;
     }
     return hasOperator;
@@ -104,7 +108,7 @@ function checkDisplay(button){
     if(!isNaN(userChoice)){
         linkNumbers(userChoice);
     }
-    else if(userChoice === "+" || userChoice === "÷" || userChoice === "×" || userChoice === "-"){
+    else if(userChoice === "+" || userChoice === "÷" || userChoice === "×" || userChoice === "-" || userChoice === "^"){
         addOperator(userChoice);
     }
     else if(userChoice === "=" && functionStr.textContent.length > 0 && !functionStr.textContent.includes("=")){
