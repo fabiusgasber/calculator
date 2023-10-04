@@ -6,19 +6,7 @@ html{
 {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     margin-top: 5em;
-}
-
-.mistake-area {
-    display:flex; 
-    justify-content: center;
-    gap: 30px;
-}
-
-.mistake-area button {
-    flex-basis: 40%;
-    padding: 0 1em;
 }
 
 .calc-body{
@@ -27,15 +15,16 @@ html{
 }
 
 .user-area{
-    margin: 2em 0;
+    margin: 1em;
     gap: 10px;
-    flex-basis: 75%;
+    flex-wrap: wrap;
 }
 
 .calc-body{
     background-color: #000000;
     border-radius: 12px;
-    height: 40em;
+    max-height: 40em;
+    max-width: 25em;
 }
 
 .calc-display{
@@ -61,8 +50,8 @@ html{
 }
 
 button {
-    font-size: 30px;
-    flex-basis: 20%;
+    font-size: 2em;
+    flex: 1 1 20%;
     color: #edbc28;
     text-decoration: none;
     padding: 0;
@@ -77,4 +66,8 @@ button {
 
 button:hover{
     background-color: #161515;
+}
+
+.operator{
+    color: #ffffff;
 }
