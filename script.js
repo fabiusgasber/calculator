@@ -11,32 +11,56 @@ function calculate(str) {
     let equation;
     switch (operator) {
         case "+":
-            equation = a + b;
+            equation = sum(a, b);
             break;
         case "-":
-            equation = a - b;
+            equation = substract(a, b);
             break;
         case "×":
-            equation = a * b;
+            equation = mulitply(a, b);
             break;
         case "÷":
-            if(b === 0){
-                equation = "LMFAO";
-            }
-            else{
-                equation = a / b;
-            }
+            equation = divide(a, b);
             break;
         case "^":
-            equation = a ** b;
+            equation = extrapolate(a, b);
             break;
     }
-        if(equation % 1 != 0){
-            try{
-                equation = equation.toFixed(2);
-            } catch(error){ };
-        } 
-    return equation;
+    return roundNumber(equation);
+}
+
+function sum(a, b){
+    return a + b;
+}
+
+function substract(a, b){
+    return a - b;
+}
+
+function mulitply(a, b){
+    return a * b;
+}
+
+function divide(a, b){
+    if(b === 0){
+        return "LMFAO";
+    }
+    else{
+        return a / b;
+    }
+}
+
+function extrapolate(a, b){
+    return a ** b;
+}
+
+function roundNumber(number){
+    if(number % 1 != 0){
+        try{
+            number = number.toFixed(2);
+        } catch(error){ };
+    } 
+    return number;
 }
 
 function getNumber(number){
@@ -109,6 +133,19 @@ function addDecimal(){
     }
 }
 
+function setUpEquation(){
+    functionStr.textContent = functionStr.textContent + result.textContent + " " + "=";
+    result.textContent = calculate(functionStr.textContent + result.textContent);
+}
+
+function stringInUse(str){
+ return functionStr.textContent.includes(str);
+}
+
+function stringEmpty(){
+    return functionStr.textContent.length === 0;
+}
+
 function checkDisplay(button){
     let userChoice = button.textContent;
     if(!isNaN(userChoice)){
@@ -117,11 +154,10 @@ function checkDisplay(button){
     else if(userChoice === "+" || userChoice === "÷" || userChoice === "×" || userChoice === "-" || userChoice === "^"){
         addOperator(userChoice);
     }
-    else if(userChoice === "=" && functionStr.textContent.length > 0 && !functionStr.textContent.includes("=")){
-        functionStr.textContent = functionStr.textContent + result.textContent + " " + "="
-        result.textContent = calculate(functionStr.textContent + result.textContent);
+    else if(userChoice === "=" && !stringEmpty() && !stringInUse("=")){
+        setUpEquation();
     }
-    else if(userChoice === "C" && !functionStr.textContent.includes("=")){
+    else if(userChoice === "C" && !stringInUse("=")){
         deleteValues();
     }
     else if(userChoice === "CE"){
