@@ -71,7 +71,7 @@ function linkNumbers(number){
     if(result.textContent == 0){
         result.textContent = number
     }
-    else if(!hasOperator() && !isOperator){
+    else if(!hasOperator() && !isOperator && !functionStr.textContent.includes("=")){
         result.textContent += number;
         isOperator = false;
     }
@@ -79,7 +79,7 @@ function linkNumbers(number){
         result.textContent = number;
         isOperator = false;
     }
-    else {
+    else if(!functionStr.textContent.includes("=")){
         result.textContent += number;
     }
 }
@@ -111,10 +111,10 @@ function checkDisplay(button){
         functionStr.textContent = functionStr.textContent + result.textContent + " " + "="
         result.textContent = calculate(functionStr.textContent + result.textContent);
     }
-    else if(userChoice === "Delete" && !functionStr.textContent.includes("=")){
+    else if(userChoice === "C" && !functionStr.textContent.includes("=")){
         deleteValues();
     }
-    else if(userChoice === "Clear"){
+    else if(userChoice === "CE"){
         clearValues();
     }
     }
