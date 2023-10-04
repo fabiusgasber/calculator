@@ -71,3 +71,17 @@ button:hover{
 .operator{
     color: #ffffff;
 }
+
+footer{
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    margin-top: 5em;
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+footer img{
+    width: 1em;
+    height: auto;
+}
