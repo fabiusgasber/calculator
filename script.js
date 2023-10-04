@@ -3,6 +3,24 @@ const result = document.querySelector('.calc-result');
 let functionStr = document.querySelector('.calc-function');
 let isOperator = false;
 
+const operators = {
+    add: "+",
+    sub: "-",
+    mul: "×", 
+    div: "÷", 
+    ext: "^"
+}
+
+function checkOperator(str){
+    let isOperator = false;
+    for(const property in operators){
+        if(str === operators[property]){
+            isOperator = true;
+        }
+    }
+    return isOperator;
+}
+
 function calculate(str) {
     let arr = str.split(" ");
     let a = getNumber(arr[0]);
@@ -151,9 +169,6 @@ function checkDisplay(button){
     if(!isNaN(userChoice)){
         linkNumbers(userChoice);
     }
-    else if(userChoice === "+" || userChoice === "÷" || userChoice === "×" || userChoice === "-" || userChoice === "^"){
-        addOperator(userChoice);
-    }
     else if(userChoice === "=" && !stringEmpty() && !stringInUse("=")){
         setUpEquation();
     }
@@ -165,6 +180,9 @@ function checkDisplay(button){
     }
     else if(userChoice === "."){
         addDecimal();
+    }
+    else if(checkOperator(userChoice)){
+        addOperator(userChoice);
     }
     }
 
