@@ -8,7 +8,8 @@ const operators = {
     sub: "-",
     mul: "×", 
     div: "÷", 
-    ext: "^"
+    ext: "^",
+    perc: "%"
 }
 
 function checkOperator(str){
@@ -43,6 +44,9 @@ function calculate(str) {
         case "^":
             equation = extrapolate(a, b);
             break;
+        case "%":
+            equation = percentile(a);
+            break;
     }
     return roundNumber(equation);
 }
@@ -70,6 +74,10 @@ function divide(a, b){
 
 function extrapolate(a, b){
     return a ** b;
+}
+
+function percentile(a){
+    return a / 100;
 }
 
 function roundNumber(number){
@@ -156,6 +164,10 @@ function checkDisplay(button){
     let userChoice = button.textContent;
     if(!isNaN(userChoice)){
         addNumber(userChoice);
+    }
+    else if (userChoice === "%"){
+        functionStr.textContent = result.textContent + " " + "%" + " " + "=";
+        result.textContent = calculate(functionStr.textContent);
     }
     else if(userChoice === "=" && !stringEmpty() && !stringInUse("=")){
         setUpEquation();
