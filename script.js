@@ -13,8 +13,8 @@ const operators = {
 
 function checkOperator(str){
     let isOperator = false;
-    for(const property in operators){
-        if(str.includes(operators[property])){
+    for(const operator in operators){
+        if(str.includes(operators[operator])){
             isOperator = true;
         }
     }
@@ -105,13 +105,9 @@ function deleteValues(){
     result.textContent = arr.join("");
 }
 
-function linkNumbers(number){
+function addNumber(number){
     if(result.textContent == 0 && !result.textContent.includes(".")){
         result.textContent = number
-    }
-    else if(!checkOperator(functionStr.textContent) && !isOperator && !functionStr.textContent.includes("=")){
-        result.textContent += number;
-        isOperator = false;
     }
     else if(isOperator && checkOperator(functionStr.textContent)){
         result.textContent = number;
@@ -159,7 +155,7 @@ function stringEmpty(){
 function checkDisplay(button){
     let userChoice = button.textContent;
     if(!isNaN(userChoice)){
-        linkNumbers(userChoice);
+        addNumber(userChoice);
     }
     else if(userChoice === "=" && !stringEmpty() && !stringInUse("=")){
         setUpEquation();
