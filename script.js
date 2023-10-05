@@ -152,6 +152,11 @@ function setUpEquation(){
     result.textContent = calculate(functionStr.textContent + result.textContent);
 }
 
+function directEquation(operator){
+    functionStr.textContent = result.textContent + " " + operator + " " + "=";
+    result.textContent = calculate(functionStr.textContent);
+}
+
 function stringInUse(str){
  return functionStr.textContent.includes(str);
 }
@@ -166,8 +171,7 @@ function checkDisplay(button){
         addNumber(userChoice);
     }
     else if (userChoice === "%"){
-        functionStr.textContent = result.textContent + " " + "%" + " " + "=";
-        result.textContent = calculate(functionStr.textContent);
+        directEquation("%");
     }
     else if(userChoice === "=" && !stringEmpty() && !stringInUse("=")){
         setUpEquation();
